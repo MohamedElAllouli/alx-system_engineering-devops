@@ -21,6 +21,7 @@ int main(void)
 {
 	int i;
 	pid_t zombie;
+
 	for (i = 0; i < 5; i++)
 	{
 		zombie = fork();
