@@ -16,6 +16,7 @@ global
         ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-S>
         ssl-default-bind-ciphersuites TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256
         ssl-default-bind-options ssl-min-ver TLSv1.2 no-tls-tickets
+
 defaults
         log     global
         mode    http
@@ -37,10 +38,10 @@ frontend elalloulialx-frontend
         mode http
         http-request redirect scheme https code 301 unless { ssl_fc }
         http-request set-header X_Forwarded-Proto http
-        default_backend clickviral-backend
+        default_backend elalloulialx-backend
 
 frontend elalloulialx-frontend-https
-        bind *:443 ssl crt /etc/haproxy/certs/elalloulialx.tech.pem
+        bind *:443 ssl crt /etc/haproxy/certs/www.elalloulialx.tech.pem
         http-request set-header X-Forwarded-Proto https
         default_backend elalloulialx-backend
 
