@@ -40,7 +40,7 @@ frontend elalloulialx-frontend
         default_backend clickviral-backend
 
 frontend elalloulialx-frontend-https
-        bind *:443 ssl crt /etc/haproxy/certs/www.elalloulialx.tech.pem
+        bind *:443 ssl crt /etc/haproxy/certs/elalloulialx.tech.pem
         http-request set-header X-Forwarded-Proto https
         default_backend elalloulialx-backend
 
